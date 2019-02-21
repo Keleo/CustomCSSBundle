@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% import "macros/widgets.html.twig" as widgets %}
+{% import "macros/datatables.html.twig" as tables %}
+
+{% block page_title %}{{ 'Custom CSS'|trans }}{% endblock %}
+{% block page_subtitle %}{{ 'custom_css.subtitle'|trans }}{% endblock %}
+
+{% block main %}
+
+    <script type="text/javascript">
+        function addCustomCssRuleToBox(ruleName)
+        {
+            var cssRules = {
+                {% for groupName, rules in rulesets %}
+                    {% for ruleName, ruleContent in rules %}
+            '{{ groupName }}_{{ ruleName }}': '{{ ruleContent|escape('js') }}',
+                    {% endfor %}
+                {% endfor %}
+                'lastone': ''
+            };
+
+            $('#custom_css_customCss').val($('#custom_css_customCss').val() + "\n" + cssRules[ruleName]);
+
+            return false;
+        }
+    </script>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-solid">
+                <div class="box-body">
+                    <h4>{{ 'custom_css.add_predefined_rule' | trans }}</h4>
+
+                    {% for groupName, rules in rulesets %}
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ groupName }} <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                        {% for ruleName, ruleContent in rules %}
+                            <li><a href="#" onclick="return addCustomCssRuleToBox('{{ groupName }}_{{ ruleName }}')">{{ ruleName }}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ include('default/_form.html.twig', {
+        'title': 'action.edit' | trans,
+        'form': form,
+    }) }}
+{% endblock %}

@@ -1,0 +1,24 @@
+.main-header .logo .logo-mini {
+    color: transparent;
+    line-height: 0;
+}
+.main-header .logo .logo-mini:after {
+    content: "YC";
+    line-height: 50px;
+    font-size: 20px;
+    color: #fff;
+    display: block;
+    font-weight: 400;
+}
+.main-header .logo .logo-lg {
+    color: transparent;
+    line-height: 0;
+}
+.main-header .logo .logo-lg:after {
+    content: "Your company";
+    line-height: 50px;
+    font-size: 20px;
+    color: #fff;
+    display: block;
+    font-weight: 400;
+}

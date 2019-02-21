@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file date="2019-02-20T20:00:00Z" source-language="en" target-language="en" datatype="plaintext" original="none">
+        <body>
+            <trans-unit id="Custom CSS">
+                <source>Custom CSS</source>
+                <target>Custom CSS</target>
+            </trans-unit>
+            <trans-unit id="custom_css.subtitle">
+                <source>custom_css.subtitle</source>
+                <target>These CSS rules will be included with every page response</target>
+            </trans-unit>
+            <trans-unit id="custom_css.add_predefined_rule">
+                <source>custom_css.add_predefined_rule</source>
+                <target>Add pre-defined rule</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

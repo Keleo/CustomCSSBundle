@@ -1,0 +1,4 @@
+.sidebar-menu>li>ul>li>a>i,
+.sidebar-menu>li>a>i{
+    display:none;
+}
