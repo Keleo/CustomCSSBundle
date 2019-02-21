@@ -39,3 +39,7 @@ This bundle ships a new administration screen, which will be available for the f
 
 This bundle stores the custom CSS rules in the file `var/data/custom-css-bundle.css`. 
 Make sure its writable by your webserver!
+
+## Screenshot
+
+![Screenshot](https://raw.githubusercontent.com/Keleo/CustomCSSBundle/master/screenshot.jpg)
