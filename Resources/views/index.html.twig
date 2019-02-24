@@ -19,7 +19,10 @@
                 'lastone': ''
             };
 
-            $('#custom_css_customCss').val($('#custom_css_customCss').val() + "\n" + cssRules[ruleName]);
+            var header = "/* START [" + ruleName.replace('_', '] ') + " */";
+            var footer = "/* END [" + ruleName.replace('_', '] ') + " */";
+
+            $('#custom_css_customCss').val($('#custom_css_customCss').val() + "\n" + header +"\n" + cssRules[ruleName] + "\n" + footer + "\n");
 
             return false;
         }
