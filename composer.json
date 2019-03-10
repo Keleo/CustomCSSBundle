@@ -5,6 +5,10 @@
     "require": {
         "kimai/kimai2-composer": "*"
     },
+    "keywords": [
+        "kimai",
+        "kimai-plugin"
+    ],
     "license": "MIT",
     "authors": [
         {
