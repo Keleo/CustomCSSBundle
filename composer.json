@@ -1,0 +1,16 @@
+{
+    "name": "keleo/custom-css-bundle",
+    "description": "A Kimai 2 plugin, which allows to edit custom CSS rules through an administration screen.",
+    "type": "kimai-plugin",
+    "require": {
+        "kimai/kimai2-composer": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Papst",
+            "email": "kpapst@gmx.net",
+            "homepage": "https://www.keleo.de"
+        }
+    ]
+}
