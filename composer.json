@@ -16,5 +16,10 @@
             "email": "kpapst@gmx.net",
             "homepage": "https://www.keleo.de"
         }
-    ]
+    ],
+    "extra": {
+        "kimai": {
+            "name": "CustomCSSBundle"
+        }
+    }
 }
