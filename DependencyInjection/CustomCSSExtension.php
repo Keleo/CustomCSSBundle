@@ -11,11 +11,10 @@ namespace KimaiPlugin\CustomCSSBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class CustomCSSExtension extends Extension implements PrependExtensionInterface
+class CustomCSSExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -25,12 +24,5 @@ class CustomCSSExtension extends Extension implements PrependExtensionInterface
         } catch (\Exception $e) {
             echo '[CustomCSSExtension] invalid services config found: ' . $e->getMessage();
         }
-    }
-
-    /**
-     * Allow an extension to prepend the extension configurations.
-     */
-    public function prepend(ContainerBuilder $container)
-    {
     }
 }

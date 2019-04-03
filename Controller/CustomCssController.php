@@ -29,7 +29,7 @@ class CustomCssController extends AbstractController
     protected $repository;
 
     /**
-     * @param string $pluginDirectory
+     * @param CustomCssRepository $repository
      */
     public function __construct(CustomCssRepository $repository)
     {
