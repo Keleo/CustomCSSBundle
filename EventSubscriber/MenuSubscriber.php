@@ -9,7 +9,7 @@
 
 namespace KimaiPlugin\CustomCSSBundle\EventSubscriber;
 
-use App\Event\ConfigureAdminMenuEvent;
+use App\Event\ConfigureMainMenuEvent;
 use KevinPapst\AdminLTEBundle\Model\MenuItemModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
@@ -36,14 +36,14 @@ class MenuSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            ConfigureAdminMenuEvent::CONFIGURE => ['onAdminMenuConfigure', 100],
+            ConfigureMainMenuEvent::CONFIGURE => ['onMenuConfigure', 100],
         ];
     }
 
     /**
-     * @param \App\Event\ConfigureAdminMenuEvent $event
+     * @param \App\Event\ConfigureMainMenuEvent $event
      */
-    public function onAdminMenuConfigure(ConfigureAdminMenuEvent $event)
+    public function onMenuConfigure(ConfigureMainMenuEvent $event)
     {
         $auth = $this->security;
 
@@ -51,7 +51,7 @@ class MenuSubscriber implements EventSubscriberInterface
             return;
         }
 
-        $menu = $event->getAdminMenu();
+        $menu = $event->getSystemMenu();
 
         if ($auth->isGranted('ROLE_SUPER_ADMIN') || $auth->isGranted('edit_custom_css')) {
             $menu->addChild(
