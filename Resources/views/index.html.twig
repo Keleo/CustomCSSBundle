@@ -28,28 +28,23 @@
         }
     </script>
 
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="box box-solid">
-                <div class="box-body">
-                    <h4>{{ 'custom_css.add_predefined_rule' | trans }}</h4>
-
-                    {% for groupName, rules in rulesets %}
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ groupName }} <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                        {% for ruleName, ruleContent in rules %}
-                            <li><a href="#" onclick="return addCustomCssRuleToBox('{{ groupName }}_{{ ruleName }}')">{{ ruleName }}</a></li>
-                        {% endfor %}
-                        </ul>
-                    </div>
-                    {% endfor %}
-                </div>
+    {% embed '@AdminLTE/Widgets/box-widget.html.twig' with {boxtype: 'default'} %}
+        {% block box_title %}{{ 'custom_css.add_predefined_rule' | trans }}{% endblock %}
+        {% block box_body %}
+            {% for groupName, rules in rulesets %}
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ groupName }} <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                {% for ruleName, ruleContent in rules %}
+                    <li><a href="#" onclick="return addCustomCssRuleToBox('{{ groupName }}_{{ ruleName }}')">{{ ruleName }}</a></li>
+                {% endfor %}
+                </ul>
             </div>
-        </div>
-    </div>
+            {% endfor %}
+        {% endblock %}
+    {% endembed %}
 
     {{ include('default/_form.html.twig', {
         'title': 'action.edit' | trans,
