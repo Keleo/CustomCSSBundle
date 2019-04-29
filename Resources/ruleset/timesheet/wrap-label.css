@@ -1,0 +1,8 @@
+/*  this rule allows that the labels for customer/project/activity in the timesheet tables wrap (line-break)
+    and do not take up too much horizontal space on small screens (or on very long titles) */
+#datatable_timesheet_admin table.dataTable td .label,
+#datatable_timesheet table.dataTable td .label {
+    white-space: pre-wrap;
+    line-height: 2;
+    padding: .3em .3em;
+}
