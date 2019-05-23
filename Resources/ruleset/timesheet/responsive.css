@@ -5,3 +5,13 @@
     overflow-x: auto;
     min-height: .01%;
 }
+#datatable_timesheet_admin .dataTables_wrapper > .row,
+#datatable_timesheet .dataTables_wrapper > .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+#datatable_timesheet_admin .dataTables_wrapper > .row > .col-sm-12,
+#datatable_timesheet .dataTables_wrapper > .row > .col-sm-12 {
+    padding-left: 0;
+    padding-right: 0;
+}
