@@ -1,0 +1,17 @@
+/*  this allows horizontal scrolling on the timesheet tables on small screens or for
+    entries with long names for customer/project/activity or descriptions */
+#datatable_timesheet_admin .dataTables_wrapper,
+#datatable_timesheet .dataTables_wrapper {
+    overflow-x: auto;
+    min-height: .01%;
+}
+#datatable_timesheet_admin .dataTables_wrapper > .row,
+#datatable_timesheet .dataTables_wrapper > .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+#datatable_timesheet_admin .dataTables_wrapper > .row > .col-sm-12,
+#datatable_timesheet .dataTables_wrapper > .row > .col-sm-12 {
+    padding-left: 0;
+    padding-right: 0;
+}

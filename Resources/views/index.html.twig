@@ -19,10 +19,20 @@
                 'lastone': ''
             };
 
-            var header = "/* START [" + ruleName.replace('_', '] ') + " */";
-            var footer = "/* END [" + ruleName.replace('_', '] ') + " */";
+            var humanRuleName = "[" + ruleName.replace('_', '] ');
+            var header = "/* START " + humanRuleName + " */";
+            var footer = "/* END " + humanRuleName + " */";
+            var ruleRegexp = new RegExp(header.replace(/[*[\]]/g, '\\$&') + '[^]*?' + footer.replace(/[*[\]]/g, '\\$&'))
+            var customCss = $('#custom_css_customCss').val();
+            var newCss = header + "\n" + cssRules[ruleName] + "\n" + footer;
 
-            $('#custom_css_customCss').val($('#custom_css_customCss').val() + "\n" + header +"\n" + cssRules[ruleName] + "\n" + footer + "\n");
+            if (ruleRegexp.test(customCss) && confirm(humanRuleName + " is already in your Custom CSS replace it? If not it will be appended.")) {
+                customCss = customCss.replace(ruleRegexp, newCss);
+            } else {
+                customCss = customCss + "\n" + newCss + "\n";
+            }
+
+            $('#custom_css_customCss').val(customCss);
 
             return false;
         }
