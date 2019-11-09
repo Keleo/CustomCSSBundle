@@ -53,7 +53,7 @@ class MenuSubscriber implements EventSubscriberInterface
 
         $menu = $event->getSystemMenu();
 
-        if ($auth->isGranted('ROLE_SUPER_ADMIN') || $auth->isGranted('edit_custom_css')) {
+        if ($auth->isGranted('edit_custom_css')) {
             $menu->addChild(
                 new MenuItemModel('custom_css', 'Custom CSS', 'custom_css', [], 'fab fa-css3')
             );

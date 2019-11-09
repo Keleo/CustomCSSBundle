@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route(path="/admin/custom-css")
- * @Security("is_granted('ROLE_SUPER_ADMIN') or is_granted('edit_custom_css')")
+ * @Security("is_granted('edit_custom_css')")
  */
 class CustomCssController extends AbstractController
 {
