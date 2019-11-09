@@ -30,11 +30,14 @@ You could also [download it as zip](https://github.com/keleo/CustomCSSBundle/arc
 
 ## Permissions
 
-This bundle ships a new administration screen, which will be available for the following users:
+This bundle ships a new permission, which limit access to certain functionalities:
 
-- `ROLE_SUPER_ADMIN` - every super administrator
 - `edit_custom_css` - every use that owns this permission 
- 
+
+By default, it is assigned to each user with the role `ROLE_SUPER_ADMIN`.
+
+Read how to assign these permission to your user roles in the [permission documentation](https://www.kimai.org/documentation/permissions.html).
+
 ## Storage
 
 This bundle stores the custom CSS rules in the file `var/data/custom-css-bundle.css`. 

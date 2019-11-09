@@ -17,14 +17,15 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class CustomCSSExtension extends Extension implements PrependExtensionInterface
 {
+    /**
+     * @param array $configs
+     * @param ContainerBuilder $container
+     * @throws \Exception
+     */
     public function load(array $configs, ContainerBuilder $container)
     {
-        try {
-            $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-            $loader->load('services.yaml');
-        } catch (\Exception $e) {
-            echo '[CustomCSSExtension] invalid services config found: ' . $e->getMessage();
-        }
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader->load('services.yaml');
     }
 
     public function prepend(ContainerBuilder $container)
@@ -32,7 +33,9 @@ class CustomCSSExtension extends Extension implements PrependExtensionInterface
         $container->prependExtensionConfig('kimai', [
             'permissions' => [
                 'roles' => [
-                    'ROLE_SUPER_ADMIN' => ['edit_custom_css'],
+                    'ROLE_SUPER_ADMIN' => [
+                        'edit_custom_css',
+                    ],
                 ],
             ],
         ]);
