@@ -41,7 +41,7 @@ Read how to assign these permission to your user roles in the [permission docume
 ## Storage
 
 This bundle stores the custom CSS rules in the file `var/data/custom-css-bundle.css`. 
-Make sure its writable by your webserver!
+Make sure its writable by your webserver and included in your backups.
 
 ## Screenshot
 
