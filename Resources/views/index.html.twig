@@ -24,7 +24,7 @@
             var footer = "/* END " + humanRuleName + " */";
             var ruleRegexp = new RegExp(header.replace(/[*[\]]/g, '\\$&') + '[^]*?' + footer.replace(/[*[\]]/g, '\\$&'))
             var customCss = $('#custom_css_customCss').val();
-            var newCss = header + "\n" + cssRules[ruleName] + "\n" + footer;
+            var newCss = header + "\n" + cssRules[ruleName].trim() + "\n" + footer;
 
             if (ruleRegexp.test(customCss) && confirm(humanRuleName + " is already in your Custom CSS replace it? If not it will be appended.")) {
                 customCss = customCss.replace(ruleRegexp, newCss);
