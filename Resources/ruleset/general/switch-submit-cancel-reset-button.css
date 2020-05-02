@@ -1,0 +1,7 @@
+.modal-footer button[type=submit], .box-footer input[type=submit] {
+    float: right !important
+}
+
+.modal-footer .btn-cancel, .box-footer input[type=reset] {
+    float: left !important
+}
