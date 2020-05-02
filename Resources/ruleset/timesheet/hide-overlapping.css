@@ -1,0 +1,4 @@
+/*  this rule removes the red dotted lines between timesheet entries, indicating overlapping records in the timesheet tables */
+table.dataTable tr.overlapping {
+    border-top: none;
+}
