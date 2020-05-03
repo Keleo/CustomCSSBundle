@@ -2,8 +2,8 @@
 
 ## 1.3
 
-- Added rule for hiding overlapping timesheet records
-- Added rule for highlighting active timesheet records
+- Added rule to hide red-lines overlapping timesheet records
+- Added rule to highlight active timesheet records
 - Fixed "remove colored dot" rule for Kimai 1.9 HTML changes
 
 Best compatibility with with Kimai 1.9
