@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.3
+
+- Added rule to hide the red-lines between overlapping timesheet records
+- Added rule to highlight active timesheet records
+- Fixed "remove colored dot" rule for Kimai 1.9 HTML changes
+
+Best compatibility with with Kimai 1.9
+
+## 1.2
+
+- Added rule for switching save & close/reset buttons order
+
+Best compatibility with with Kimai 1.9
+
 ## 1.1
 
 - Improved permission handling
