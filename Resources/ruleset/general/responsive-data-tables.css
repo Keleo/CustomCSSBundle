@@ -1,0 +1,13 @@
+/*  this allows horizontal scrolling on all data-tables */
+.box .dataTables_wrapper {
+    overflow-x: auto;
+    min-height: .01%;
+}
+.box .dataTables_wrapper > .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.box .dataTables_wrapper > .row > .col-sm-12 {
+    padding-left: 0;
+    padding-right: 0;
+}
