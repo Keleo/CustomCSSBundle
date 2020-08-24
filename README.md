@@ -7,24 +7,23 @@ It ships with some pre-defined CSS rules, which can be added with a button click
 ## Installation
 
 First clone it to your Kimai installation `plugins` directory:
-```
+```bash
 cd /kimai/var/plugins/
 git clone https://github.com/Keleo/CustomCSSBundle.git
 ```
 
 And then rebuild the cache: 
-```
+```bash
 cd /kimai/
-bin/console cache:clear
-bin/console cache:warmup
+bin/console kimai:reload --env=prod
 ```
 
 You could also [download it as zip](https://github.com/keleo/CustomCSSBundle/archive/master.zip) and upload the directory via FTP:
 
-```
+```bash
 /kimai/var/plugins/
 ├── CustomCSSBundle
-│   ├── CustomCSSBundle.php
+│   ├── CustomCSSBundle.php
 |   └ ... more files and directories follow here ... 
 ```
 
@@ -45,4 +44,4 @@ Make sure its writable by your webserver and included in your backups.
 
 ## Screenshot
 
-![Screenshot](https://raw.githubusercontent.com/Keleo/CustomCSSBundle/master/screenshot.jpg)
+Screenshots are available [in the store page](https://www.kimai.org/store/keleo-css-custom-bundle.html).
