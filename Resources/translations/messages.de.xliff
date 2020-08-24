@@ -14,6 +14,10 @@
                 <source>custom_css.add_predefined_rule</source>
                 <target>Vorgefertigte Regel einfügen</target>
             </trans-unit>
+            <trans-unit id="custom_css.add_rule_help">
+                <source>custom_css.add_rule_help</source>
+                <target>Fügen Sie ihre eigenen CSS Regeln hier ein</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

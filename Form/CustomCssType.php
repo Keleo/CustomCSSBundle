@@ -24,7 +24,7 @@ class CustomCssType extends AbstractType
     {
         $builder
             ->add('customCss', TextareaType::class, [
-                'label' => 'Custom CSS',
+                'label' => false,
                 'required' => false,
                 'attr' => [
                     'rows' => '20',
