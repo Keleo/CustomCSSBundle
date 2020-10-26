@@ -1,8 +1,10 @@
 # Changelog
 
-## 1.4 (unreleased)
+## 1.4
 
 - Minimal form change
+- Added rule for responsive tables everywhere
+- Added rule to hide calendar menu in navigation
 
 ## 1.3
 
