@@ -4,9 +4,6 @@
     "homepage": "https://www.kimai.org/store/keleo-css-custom-bundle.html",
     "type": "kimai-plugin",
     "version": "1.4",
-    "require": {
-        "kimai/kimai2-composer": "*"
-    },
     "keywords": [
         "kimai",
         "kimai-plugin"
