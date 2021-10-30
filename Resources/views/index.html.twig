@@ -38,8 +38,8 @@
         }
     </script>
 
-    {% embed '@AdminLTE/Widgets/box-widget.html.twig' with {boxtype: 'default'} %}
-        {% block box_title %}{{ 'custom_css.add_predefined_rule' | trans }}{% endblock %}
+    {% embed '@theme/Widgets/box-widget.html.twig' with {boxtype: 'default'} %}
+        {% block box_title %}{{ 'custom_css.add_predefined_rule'|trans }}{% endblock %}
         {% block box_body %}
             {% for groupName, rules in rulesets %}
             <div class="btn-group">
@@ -57,7 +57,7 @@
     {% endembed %}
 
     {{ include('default/_form.html.twig', {
-        'title': 'custom_css.add_rule_help'|trans,
+        'title': ('custom_css.add_rule_help'|trans),
         'form': form,
     }) }}
 {% endblock %}

@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 2.0
+
+Compatibility: requires minimum Kimai 2.0
+
+- Fixed: compatibility with Kimai 2.0
+
 ## 1.4
 
 - Minimal form change
