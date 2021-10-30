@@ -41,18 +41,20 @@
     {% embed '@theme/Widgets/box-widget.html.twig' with {boxtype: 'default'} %}
         {% block box_title %}{{ 'custom_css.add_predefined_rule'|trans }}{% endblock %}
         {% block box_body %}
+            <div class="d-flex">
             {% for groupName, rules in rulesets %}
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ groupName }} <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                {% for ruleName, ruleContent in rules %}
-                    <li><a href="#" onclick="return addCustomCssRuleToBox('{{ groupName }}_{{ ruleName }}')">{{ ruleName }}</a></li>
-                {% endfor %}
-                </ul>
-            </div>
+                <div class="dropdown me-2">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ groupName }}
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        {% for ruleName, ruleContent in rules %}
+                            <li><a class="dropdown-item" href="#" onclick="return addCustomCssRuleToBox('{{ groupName }}_{{ ruleName }}')">{{ ruleName }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
             {% endfor %}
+            </div>
         {% endblock %}
     {% endembed %}
 
