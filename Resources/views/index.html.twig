@@ -38,7 +38,7 @@
         }
     </script>
 
-    {% embed '@theme/Widgets/box-widget.html.twig' with {boxtype: 'default'} %}
+    {% embed '@theme/embeds/card.html.twig' with {boxtype: 'default'} %}
         {% block box_title %}{{ 'custom_css.add_predefined_rule'|trans }}{% endblock %}
         {% block box_body %}
             <div class="d-flex">
