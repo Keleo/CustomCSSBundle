@@ -30,7 +30,9 @@ class CustomCssRepository
     public function __construct(string $pluginDirectory, string $dataDirectory)
     {
         $this->ruleSetDir = $pluginDirectory . '/CustomCSSBundle/Resources/ruleset';
-        $this->cssFile = $dataDirectory . '/custom-css-bundle.css';
+        // pre v2 the file was called custom-css-bundle.css - the name was
+        // changed because the old rules will not work in v2
+        $this->cssFile = $dataDirectory . '/custom-css.css';
     }
 
     /**
