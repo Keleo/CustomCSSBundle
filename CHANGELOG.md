@@ -1,12 +1,9 @@
 # Changelog
 
-## 1.5
+## 1.4
 
 - Added permission `select_custom_css` to hide pre-made rules
 - Changed translation filenames from `*.xliff` to `*.xlf`
-
-## 1.4
-
 - Minimal form change
 - Added rule for responsive tables everywhere
 - Added rule to hide calendar menu in navigation
