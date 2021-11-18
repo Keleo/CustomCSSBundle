@@ -3,61 +3,65 @@
 {% import "macros/datatables.html.twig" as tables %}
 
 {% block page_title %}{{ 'Custom CSS'|trans }}{% endblock %}
-{% block page_subtitle %}{{ 'custom_css.subtitle'|trans }}{% endblock %}
 
 {% block main %}
 
-    <script type="text/javascript">
-        function addCustomCssRuleToBox(ruleName)
-        {
-            var cssRules = {
-                {% for groupName, rules in rulesets %}
-                    {% for ruleName, ruleContent in rules %}
-            '{{ groupName }}_{{ ruleName }}': '{{ ruleContent|escape('js') }}',
+    {% if rulesets is not empty %}
+        <script type="text/javascript">
+            function addCustomCssRuleToBox(ruleName)
+            {
+                var cssRules = {
+                    {% for groupName, rules in rulesets %}
+                        {% for ruleName, ruleContent in rules %}
+                '{{ groupName }}_{{ ruleName }}': '{{ ruleContent|escape('js') }}',
+                        {% endfor %}
                     {% endfor %}
-                {% endfor %}
-                'lastone': ''
-            };
+                    'lastone': ''
+                };
 
-            var humanRuleName = "[" + ruleName.replace('_', '] ');
-            var header = "/* START " + humanRuleName + " */";
-            var footer = "/* END " + humanRuleName + " */";
-            var ruleRegexp = new RegExp(header.replace(/[*[\]]/g, '\\$&') + '[^]*?' + footer.replace(/[*[\]]/g, '\\$&'))
-            var customCss = $('#custom_css_customCss').val();
-            var newCss = header + "\n" + cssRules[ruleName].trim() + "\n" + footer;
+                var humanRuleName = "[" + ruleName.replace('_', '] ');
+                var header = "/* START " + humanRuleName + " */";
+                var footer = "/* END " + humanRuleName + " */";
+                var ruleRegexp = new RegExp(header.replace(/[*[\]]/g, '\\$&') + '[^]*?' + footer.replace(/[*[\]]/g, '\\$&'))
+                var customCss = jQuery('#custom_css_customCss').val();
+                var newCss = header + "\n" + cssRules[ruleName].trim() + "\n" + footer;
 
-            if (ruleRegexp.test(customCss) && confirm(humanRuleName + " is already in your Custom CSS replace it? If not it will be appended.")) {
-                customCss = customCss.replace(ruleRegexp, newCss);
-            } else {
-                customCss = customCss + "\n" + newCss + "\n";
+                if (ruleRegexp.test(customCss) && confirm(humanRuleName + " is already in your Custom CSS replace it? If not it will be appended.")) {
+                    customCss = customCss.replace(ruleRegexp, newCss);
+                } else {
+                    customCss = customCss + "\n" + newCss + "\n";
+                }
+
+                jQuery('#custom_css_customCss').val(customCss);
+
+                return false;
             }
+        </script>
 
-            $('#custom_css_customCss').val(customCss);
-
-            return false;
-        }
-    </script>
-
-    {% embed '@AdminLTE/Widgets/box-widget.html.twig' with {boxtype: 'default'} %}
-        {% block box_title %}{{ 'custom_css.add_predefined_rule' | trans }}{% endblock %}
-        {% block box_body %}
-            {% for groupName, rules in rulesets %}
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ groupName }} <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                {% for ruleName, ruleContent in rules %}
-                    <li><a href="#" onclick="return addCustomCssRuleToBox('{{ groupName }}_{{ ruleName }}')">{{ ruleName }}</a></li>
+        {% embed '@AdminLTE/Widgets/box-widget.html.twig' with {boxtype: 'default'} %}
+            {% block box_title %}{{ 'custom_css.add_predefined_rule' | trans }}{% endblock %}
+            {% block box_body %}
+                {% for groupName, rules in rulesets %}
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ groupName }} <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                    {% for ruleName, ruleContent in rules %}
+                        <li><a href="#" onclick="return addCustomCssRuleToBox('{{ groupName }}_{{ ruleName }}')">{{ ruleName }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
                 {% endfor %}
-                </ul>
-            </div>
-            {% endfor %}
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+
+    {% embed 'default/_form.html.twig' with { 'title': 'custom_css.add_rule_help'|trans, 'form': form, 'reset': false } %}
+        {% block form_body %}
+            <p>{{ 'custom_css.subtitle'|trans }}</p>
+            {{ form_widget(form) }}
         {% endblock %}
     {% endembed %}
 
-    {{ include('default/_form.html.twig', {
-        'title': 'custom_css.add_rule_help'|trans,
-        'form': form,
-    }) }}
 {% endblock %}

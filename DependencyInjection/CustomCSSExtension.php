@@ -35,6 +35,7 @@ class CustomCSSExtension extends Extension implements PrependExtensionInterface
                 'roles' => [
                     'ROLE_SUPER_ADMIN' => [
                         'edit_custom_css',
+                        'select_custom_css',
                     ],
                 ],
             ],
