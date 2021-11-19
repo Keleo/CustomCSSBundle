@@ -30,6 +30,9 @@ class CustomCSSExtension extends Extension implements PrependExtensionInterface
 
     public function prepend(ContainerBuilder $container)
     {
+        /**
+         * @CloudRequired adapt if new permissions are added
+         */
         $container->prependExtensionConfig('kimai', [
             'permissions' => [
                 'roles' => [
