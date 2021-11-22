@@ -6,22 +6,16 @@ It ships with some pre-defined CSS rules, which can be added with a button click
 
 ## Installation
 
-First clone it to your Kimai installation `plugins` directory:
+First clone it to your Kimai installation `plugins` directory and then reload the cache:
 ```bash
-cd /kimai/var/plugins/
-git clone https://github.com/Keleo/CustomCSSBundle.git
-```
-
-And then rebuild the cache: 
-```bash
-cd /kimai/
+git clone https://github.com/Keleo/CustomCSSBundle.git var/plugins/CustomCSSBundle/
 bin/console kimai:reload --env=prod
 ```
 
-You could also [download it as zip](https://github.com/keleo/CustomCSSBundle/archive/master.zip) and upload the directory via FTP:
+If you use a ZIP with manual upload, make sure the directory structure looks like that (especially the directory name `CustomCSSBundle`):
 
 ```bash
-/kimai/var/plugins/
+var/plugins/
 ├── CustomCSSBundle
 │   ├── CustomCSSBundle.php
 |   └ ... more files and directories follow here ... 
@@ -29,9 +23,10 @@ You could also [download it as zip](https://github.com/keleo/CustomCSSBundle/arc
 
 ## Permissions
 
-This bundle ships a new permission, which limit access to certain functionalities:
+This bundle comes with the following permissions:
 
-- `edit_custom_css` - every use that owns this permission 
+- `edit_custom_css` - show the administration screen to edit custom css rules 
+- `select_custom_css` - select from the pre-defined rules 
 
 By default, it is assigned to each user with the role `ROLE_SUPER_ADMIN`.
 
