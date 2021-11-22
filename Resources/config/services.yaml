@@ -3,9 +3,6 @@ services:
         autowire: true
         autoconfigure: true
         public: false
-        bind:
-            $pluginDirectory: "%kimai.plugin_dir%"
-            $dataDirectory: "%kimai.data_dir%"
 
     KimaiPlugin\CustomCSSBundle\:
         resource: '../../*'

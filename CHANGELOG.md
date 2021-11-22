@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5
+
+Compatibility: requires minimum Kimai 1.9
+
+- Use FileHelper to store and load custom CSS rules
+
 ## 1.4
 
 - Added permission `select_custom_css` to hide pre-made rules
