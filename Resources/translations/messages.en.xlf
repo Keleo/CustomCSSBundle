@@ -18,6 +18,10 @@
         <source>custom_css.add_rule_help</source>
         <target>Add all of your custom CSS rules here</target>
       </trans-unit>
+      <trans-unit id="custom_css.replace">
+        <source>custom_css.replace</source>
+        <target>The rule "%name%" is already included in your custom CSS. Replace it? If not, it will be appended.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
