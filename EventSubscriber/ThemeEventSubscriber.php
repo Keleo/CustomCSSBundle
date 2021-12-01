@@ -43,11 +43,10 @@ class ThemeEventSubscriber implements EventSubscriberInterface
             return;
         }
 
-        $css = str_replace('</', '&lt;/', $css);
-        $css = '<style type="text/css">' . $css . '</style>';
-        $css = str_replace(PHP_EOL, ' ', $css);
-        $css = str_replace("\n", ' ', $css);
-        $css = str_replace("\r", ' ', $css);
+        // the first two make sure that injected HTML will not be interpreted by the browser, the others are only
+        // there to format/shrink the output size
+        $css = str_replace(['</', '<s', PHP_EOL, "\n", "\r"], ['&lt;/', '&lt;s', ' ', ' ', ' '], $css);
+        $css = '<style type="text/css">' . trim($css) . '</style>';
 
         $event->addContent($css);
     }
