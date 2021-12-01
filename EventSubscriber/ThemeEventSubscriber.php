@@ -1,7 +1,8 @@
 <?php
 
 /*
- * This file is part of the Kimai CustomCSSBundle.
+ * This file is part of the CustomCSSBundle.
+ * All rights reserved by Kevin Papst (www.kevinpapst.de).
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,15 +16,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ThemeEventSubscriber implements EventSubscriberInterface
 {
+    private $repository;
 
-    /**
-     * @var CustomCssRepository
-     */
-    protected $repository;
-
-    /**
-     * @param CustomCssRepository $repository
-     */
     public function __construct(CustomCssRepository $repository)
     {
         $this->repository = $repository;
@@ -32,7 +26,7 @@ class ThemeEventSubscriber implements EventSubscriberInterface
     /**
      * @return array
      */
-    public static function getSubscribedEvents(): array
+    public static function getSubscribedEvents()
     {
         return [
             ThemeEvent::STYLESHEET => ['renderStylesheet', 100],
@@ -49,6 +43,7 @@ class ThemeEventSubscriber implements EventSubscriberInterface
             return;
         }
 
+        $css = str_replace('</', '&lt;/', $css);
         $css = '<style type="text/css">' . $css . '</style>';
         $css = str_replace(PHP_EOL, ' ', $css);
         $css = str_replace("\n", ' ', $css);

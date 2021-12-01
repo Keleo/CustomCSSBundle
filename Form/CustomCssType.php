@@ -1,7 +1,8 @@
 <?php
 
 /*
- * This file is part of the Kimai CustomCSSBundle.
+ * This file is part of the CustomCSSBundle.
+ * All rights reserved by Kevin Papst (www.kevinpapst.de).
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,6 +11,7 @@
 namespace KimaiPlugin\CustomCSSBundle\Form;
 
 use KimaiPlugin\CustomCSSBundle\Entity\CustomCss;
+use KimaiPlugin\CustomCSSBundle\Validator\Constraints\CustomCss as CustomCssConstraint;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,6 +31,9 @@ class CustomCssType extends AbstractType
                 'attr' => [
                     'rows' => '20',
                 ],
+                'constraints' => [
+                    new CustomCssConstraint()
+                ]
             ])
         ;
     }

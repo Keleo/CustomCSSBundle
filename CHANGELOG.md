@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6
+
+Compatibility: requires minimum Kimai 1.9
+
+- Prevent that HTML tags can be injected
+- Fix code styles
+
 ## 1.5
 
 Compatibility: requires minimum Kimai 1.9
