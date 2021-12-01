@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file date="2019-02-20T20:00:00Z" source-language="en" target-language="en" datatype="plaintext" original="none">
+  <file source-language="en" target-language="en" datatype="plaintext" original="none">
     <body>
       <trans-unit id="nTuaDnj" resname="Custom CSS">
         <source>Custom CSS</source>
@@ -18,7 +18,7 @@
         <source>custom_css.add_rule_help</source>
         <target>Add all of your custom CSS rules here</target>
       </trans-unit>
-      <trans-unit id="custom_css.replace">
+      <trans-unit id="YqOvknh" resname="custom_css.replace">
         <source>custom_css.replace</source>
         <target>The rule "%name%" is already included in your custom CSS. Replace it? If not, it will be appended.</target>
       </trans-unit>

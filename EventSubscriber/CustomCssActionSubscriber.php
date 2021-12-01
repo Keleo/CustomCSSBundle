@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the MetaFieldsBundle for Kimai 2.
+ * This file is part of the CustomCSSBundle.
  * All rights reserved by Kevin Papst (www.kevinpapst.de).
  *
  * For the full copyright and license information, please view the LICENSE
@@ -12,7 +12,6 @@ namespace KimaiPlugin\CustomCSSBundle\EventSubscriber;
 
 use App\Event\PageActionsEvent;
 use App\EventSubscriber\Actions\AbstractActionsSubscriber;
-use KimaiPlugin\MetaFieldsBundle\MetaFieldsRegistry;
 
 final class CustomCssActionSubscriber extends AbstractActionsSubscriber
 {

@@ -1,7 +1,8 @@
 <?php
 
 /*
- * This file is part of the Kimai CustomCSSBundle.
+ * This file is part of the CustomCSSBundle.
+ * All rights reserved by Kevin Papst (www.kevinpapst.de).
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -33,7 +34,7 @@ class CustomCssRepository
 
         $finder = new Finder();
         $finder->ignoreUnreadableDirs()->ignoreVCS(true)->files()->name('*.css')->in($searchDir)->depth('< 2');
-        /** @var SplFileInfo $bundleDir */
+        /* @var SplFileInfo $bundleDir */
         foreach ($finder as $file) {
             $name = str_replace('.css', '', $file->getFilename());
             $rules[$file->getRelativePath()][$name] = $file->getContents();
