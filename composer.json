@@ -18,7 +18,7 @@
     ],
     "extra": {
         "kimai": {
-            "require": "2.0",
+            "require": 20000,
             "name": "CustomCSSBundle"
         }
     }
