@@ -1,7 +1,8 @@
 <?php
 
 /*
- * This file is part of the Kimai CustomCSSBundle.
+ * This file is part of the CustomCSSBundle.
+ * All rights reserved by Kevin Papst (www.kevinpapst.de).
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -30,11 +31,15 @@ class CustomCSSExtension extends Extension implements PrependExtensionInterface
 
     public function prepend(ContainerBuilder $container)
     {
+        /*
+         * @CloudRequired adapt if new permissions are added
+         */
         $container->prependExtensionConfig('kimai', [
             'permissions' => [
                 'roles' => [
                     'ROLE_SUPER_ADMIN' => [
                         'edit_custom_css',
+                        'select_custom_css',
                     ],
                 ],
             ],

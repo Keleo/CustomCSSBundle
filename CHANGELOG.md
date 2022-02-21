@@ -8,11 +8,26 @@ Compatibility: requires minimum Kimai 2.0
 
 Attention: all existing rules from v1 are stored in var/data/custom-css-bundle.css.
 They will likely not work in v2 due to the new HTML structures and classes.
-Therefor you have to manually import them. 
+Therefor you have to manually import them.
 The new storage file is: var/data/custom-css.css
+
+## 1.6
+
+Compatibility: requires minimum Kimai 1.9
+
+- Prevent that HTML tags can be injected
+- Fix code styles
+
+## 1.5
+
+Compatibility: requires minimum Kimai 1.9
+
+- Use FileHelper to store and load custom CSS rules
 
 ## 1.4
 
+- Added permission `select_custom_css` to hide pre-made rules
+- Changed translation filenames from `*.xliff` to `*.xlf`
 - Minimal form change
 - Added rule for responsive tables everywhere
 - Added rule to hide calendar menu in navigation

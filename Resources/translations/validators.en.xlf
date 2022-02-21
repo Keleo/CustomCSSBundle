@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="none">
+    <body>
+      <trans-unit id="ssr4hqh" resname="HTML_TAGS">
+        <source>HTML_TAGS</source>
+        <target>HTML Tags are not allowed</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

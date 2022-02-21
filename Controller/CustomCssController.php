@@ -1,7 +1,8 @@
 <?php
 
 /*
- * This file is part of the Kimai CustomCSSBundle.
+ * This file is part of the CustomCSSBundle.
+ * All rights reserved by Kevin Papst (www.kevinpapst.de).
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,66 +16,48 @@ use KimaiPlugin\CustomCSSBundle\Form\CustomCssType;
 use KimaiPlugin\CustomCSSBundle\Repository\CustomCssRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route(path="/admin/custom-css")
+ * @Route(path="/custom-css")
  * @Security("is_granted('edit_custom_css')")
  */
 class CustomCssController extends AbstractController
 {
     /**
-     * @var CustomCssRepository
-     */
-    protected $repository;
-
-    /**
-     * @param CustomCssRepository $repository
-     */
-    public function __construct(CustomCssRepository $repository)
-    {
-        $this->repository = $repository;
-    }
-
-    /**
      * @Route(path="", name="custom_css", methods={"GET", "POST"})
-
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, CustomCssRepository $repository): Response
     {
-        $entity = $this->repository->getCustomCss();
+        $entity = $repository->getCustomCss();
 
-        $form = $this->getEditForm($entity);
+        $form = $this->createForm(CustomCssType::class, $entity, [
+            'action' => $this->generateUrl('custom_css'),
+        ]);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var CustomCss $entity */
             $entity = $form->getData();
             try {
-                $this->repository->saveCustomCss($entity);
+                $repository->saveCustomCss($entity);
                 $this->flashSuccess('action.update.success');
             } catch (\Exception $ex) {
                 $this->flashError($ex->getMessage());
             }
         }
 
+        $rulesets = [];
+        if ($this->isGranted('select_custom_css')) {
+            $rulesets = $repository->getPredefinedStyles();
+        }
+
         return $this->render('@CustomCSS/index.html.twig', [
             'entity' => $entity,
             'form' => $form->createView(),
-            'rulesets' => $this->repository->getPredefinedStyles(),
-        ]);
-    }
-
-    /**
-     * @param CustomCss $entity
-     * @return \Symfony\Component\Form\FormInterface
-     */
-    protected function getEditForm(CustomCss $entity)
-    {
-        return $this->createForm(CustomCssType::class, $entity, [
-            'action' => $this->generateUrl('custom_css'),
+            'rulesets' => $rulesets,
         ]);
     }
 }
