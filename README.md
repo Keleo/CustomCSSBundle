@@ -1,6 +1,6 @@
 # CustomCSSBundle
 
-A Kimai 2 plugin, which allows to edit custom CSS rules through an administration screen.
+A Kimai plugin, which allows editing custom CSS rules through an administration screen.
 
 It ships with some pre-defined CSS rules, which can be added with a button click.
 
@@ -30,7 +30,7 @@ This bundle comes with the following permissions:
 
 By default, it is assigned to each user with the role `ROLE_SUPER_ADMIN`.
 
-Read how to assign these permission to your user roles in the [permission documentation](https://www.kimai.org/documentation/permissions.html).
+Read how to assign these permissions to your user roles in the [permission documentation](https://www.kimai.org/documentation/permissions.html).
 
 ## Storage
 
