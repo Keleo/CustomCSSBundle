@@ -30,7 +30,7 @@ class CustomCss extends Constraint
 
     public $message = 'Your custom css settings are invalid.';
 
-    public function getTargets()
+    public function getTargets(): string|array
     {
         return self::PROPERTY_CONSTRAINT;
     }
