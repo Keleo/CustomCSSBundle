@@ -11,12 +11,20 @@ They will likely not work in v2 due to the new HTML structures and classes.
 Therefor you have to manually import them.
 The new storage file is: var/data/custom-css.css
 
-## 1.6
+## 1.7
 
 Compatibility: requires minimum Kimai 1.9
 
 - Prevent that HTML tags can be injected
 - Fix code styles
+
+## 1.6
+
+Compatibility: requires minimum Kimai 1.9
+
+- updated install documentation
+- translated warning message for a rule inserted twice
+- added "page action" with link to documentation
 
 ## 1.5
 
