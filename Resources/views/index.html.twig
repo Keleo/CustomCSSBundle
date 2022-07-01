@@ -14,7 +14,7 @@
         <script type="text/javascript">
             function addCustomCssRuleToBox(ruleName)
             {
-                var cssRules = {
+                let cssRules = {
                     {% for groupName, rules in rulesets %}
                         {% for ruleName, ruleContent in rules %}
                 '{{ groupName }}_{{ ruleName }}': '{{ ruleContent|escape('js') }}',
@@ -23,12 +23,12 @@
                     'lastone': ''
                 };
 
-                var humanRuleName = "[" + ruleName.replace('_', '] ');
-                var header = "/* START " + humanRuleName + " */";
-                var footer = "/* END " + humanRuleName + " */";
-                var ruleRegexp = new RegExp(header.replace(/[*[\]]/g, '\\$&') + '[^]*?' + footer.replace(/[*[\]]/g, '\\$&'))
-                var customCss = jQuery('#custom_css_customCss').val();
-                var newCss = header + "\n" + cssRules[ruleName].trim() + "\n" + footer;
+                let humanRuleName = "[" + ruleName.replace('_', '] ');
+                let header = "/* START " + humanRuleName + " */";
+                let footer = "/* END " + humanRuleName + " */";
+                let ruleRegexp = new RegExp(header.replace(/[*[\]]/g, '\\$&') + '[^]*?' + footer.replace(/[*[\]]/g, '\\$&'))
+                let customCss = document.getElementById('custom_css_customCss').value;
+                let newCss = header + "\n" + cssRules[ruleName].trim() + "\n" + footer;
 
                 if (ruleRegexp.test(customCss) && confirm("{{ 'custom_css.replace'|trans|e('js') }}".replace(/%name%/, humanRuleName))) {
                     customCss = customCss.replace(ruleRegexp, newCss);
@@ -36,7 +36,7 @@
                     customCss = customCss + "\n" + newCss + "\n";
                 }
 
-                jQuery('#custom_css_customCss').val(customCss);
+                document.getElementById('custom_css_customCss').value = customCss;
 
                 return false;
             }
