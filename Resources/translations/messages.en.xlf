@@ -6,10 +6,6 @@
         <source>Custom CSS</source>
         <target>Custom CSS</target>
       </trans-unit>
-      <trans-unit id=".HZdNNH" resname="custom_css.subtitle">
-        <source>custom_css.subtitle</source>
-        <target>These CSS rules will be included with every page response</target>
-      </trans-unit>
       <trans-unit id="9wX1Sxq" resname="custom_css.add_predefined_rule">
         <source>custom_css.add_predefined_rule</source>
         <target>Add pre-defined rule</target>
