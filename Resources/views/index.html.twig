@@ -65,7 +65,6 @@
 
     {% embed 'default/_form.html.twig' with { 'title': 'custom_css.add_rule_help'|trans, 'form': form, 'reset': false } %}
         {% block form_body %}
-            <p>{{ 'custom_css.subtitle'|trans }}</p>
             {{ form_rest(form) }}
         {% endblock %}
     {% endembed %}
