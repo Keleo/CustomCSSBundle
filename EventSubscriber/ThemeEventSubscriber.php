@@ -23,20 +23,14 @@ class ThemeEventSubscriber implements EventSubscriberInterface
         $this->repository = $repository;
     }
 
-    /**
-     * @return array
-     */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             ThemeEvent::STYLESHEET => ['renderStylesheet', 100],
         ];
     }
 
-    /**
-     * @param ThemeEvent $event
-     */
-    public function renderStylesheet(ThemeEvent $event)
+    public function renderStylesheet(ThemeEvent $event): void
     {
         $css = $this->repository->getCustomCss()->getCustomCss();
         if (empty($css)) {

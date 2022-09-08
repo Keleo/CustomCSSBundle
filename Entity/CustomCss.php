@@ -12,28 +12,22 @@ namespace KimaiPlugin\CustomCSSBundle\Entity;
 
 class CustomCss
 {
+    /**
+     * @var string
+     */
     private $customCss = '';
 
-    /**
-     * @return string
-     */
     public function getCustomCss(): string
     {
         return $this->customCss;
     }
 
-    /**
-     * @param string|null $customCss
-     * @return CustomCss
-     */
-    public function setCustomCss(string $customCss = null)
+    public function setCustomCss(string $customCss = null): void
     {
         if (null === $customCss) {
             $customCss = '';
         }
 
         $this->customCss = $customCss;
-
-        return $this;
     }
 }
