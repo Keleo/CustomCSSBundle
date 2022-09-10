@@ -16,16 +16,10 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ThemeEventSubscriber implements EventSubscriberInterface
 {
-    private $repository;
-
-    public function __construct(CustomCssRepository $repository)
+    public function __construct(private CustomCssRepository $repository)
     {
-        $this->repository = $repository;
     }
 
-    /**
-     * @return array
-     */
     public static function getSubscribedEvents(): array
     {
         return [
@@ -33,10 +27,7 @@ class ThemeEventSubscriber implements EventSubscriberInterface
         ];
     }
 
-    /**
-     * @param ThemeEvent $event
-     */
-    public function renderStylesheet(ThemeEvent $event)
+    public function renderStylesheet(ThemeEvent $event): void
     {
         $css = $this->repository->getCustomCss()->getCustomCss();
         if (empty($css)) {

@@ -11,6 +11,7 @@
 namespace KimaiPlugin\CustomCSSBundle\Controller;
 
 use App\Controller\AbstractController;
+use App\Utils\PageSetup;
 use KimaiPlugin\CustomCSSBundle\Entity\CustomCss;
 use KimaiPlugin\CustomCSSBundle\Form\CustomCssType;
 use KimaiPlugin\CustomCSSBundle\Repository\CustomCssRepository;
@@ -54,7 +55,11 @@ class CustomCssController extends AbstractController
             $rulesets = $repository->getPredefinedStyles();
         }
 
+        $page = new PageSetup('Custom CSS');
+        $page->setHelp('plugin-custom-css.html');
+
         return $this->render('@CustomCSS/index.html.twig', [
+            'page_setup' => $page,
             'entity' => $entity,
             'form' => $form->createView(),
             'rulesets' => $rulesets,
