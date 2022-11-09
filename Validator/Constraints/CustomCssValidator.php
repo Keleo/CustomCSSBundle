@@ -22,7 +22,7 @@ class CustomCssValidator extends ConstraintValidator
      * @param Constraint $constraint
      * @return void
      */
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
         if (!($constraint instanceof CustomCssConstraint)) {
             throw new UnexpectedTypeException($constraint, CustomCssConstraint::class);
