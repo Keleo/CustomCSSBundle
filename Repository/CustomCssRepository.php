@@ -17,17 +17,11 @@ use Symfony\Component\Finder\SplFileInfo;
 
 class CustomCssRepository
 {
-    private $fileHelper;
-
-    public function __construct(FileHelper $fileHelper)
+    public function __construct(private FileHelper $fileHelper)
     {
-        $this->fileHelper = $fileHelper;
     }
 
-    /**
-     * @return array
-     */
-    public function getPredefinedStyles()
+    public function getPredefinedStyles(): array
     {
         $rules = [];
         $searchDir = __DIR__ . '/../Resources/ruleset';
@@ -52,12 +46,7 @@ class CustomCssRepository
         return $this->fileHelper->getDataDirectory() . '/custom-css.css';
     }
 
-    /**
-     * @param CustomCss $entity
-     * @return bool
-     * @throws \Exception
-     */
-    public function saveCustomCss(CustomCss $entity)
+    public function saveCustomCss(CustomCss $entity): bool
     {
         $file = $this->getStorageFilename();
 
@@ -72,10 +61,7 @@ class CustomCssRepository
         return true;
     }
 
-    /**
-     * @return CustomCss
-     */
-    public function getCustomCss()
+    public function getCustomCss(): CustomCss
     {
         $file = $this->getStorageFilename();
 

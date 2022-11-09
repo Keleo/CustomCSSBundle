@@ -20,15 +20,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route(path="/custom-css")
- * @Security("is_granted('edit_custom_css')")
- */
+#[Route(path: '/custom-css')]
+#[Security("is_granted('edit_custom_css')")]
 class CustomCssController extends AbstractController
 {
-    /**
-     * @Route(path="", name="custom_css", methods={"GET", "POST"})
-     */
+    #[Route(path: '', name: 'custom_css', methods: ['GET', 'POST'])]
     public function indexAction(Request $request, CustomCssRepository $repository): Response
     {
         $entity = $repository->getCustomCss();
