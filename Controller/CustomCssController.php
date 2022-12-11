@@ -42,7 +42,7 @@ class CustomCssController extends AbstractController
                 $repository->saveCustomCss($entity);
                 $this->flashSuccess('action.update.success');
             } catch (\Exception $ex) {
-                $this->flashError($ex->getMessage());
+                $this->flashUpdateException($ex);
             }
         }
 
