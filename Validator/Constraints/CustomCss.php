@@ -17,7 +17,7 @@ class CustomCss extends Constraint
     public const TAGS_DISALLOWED = 'kimai-custom-css-01';
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
     protected static $errorNames = [
         self::TAGS_DISALLOWED => 'HTML_TAGS',

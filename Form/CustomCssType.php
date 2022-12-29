@@ -19,10 +19,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CustomCssType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('customCss', TextareaType::class, [
@@ -38,9 +35,6 @@ class CustomCssType extends AbstractType
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

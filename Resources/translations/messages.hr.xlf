@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="hr" datatype="plaintext" original="none">
+    <body>
+      <trans-unit id="nTuaDnj" resname="Custom CSS">
+        <source>Custom CSS</source>
+        <target state="translated">Prilagođeni CSS</target>
+      </trans-unit>
+      <trans-unit id=".HZdNNH" resname="custom_css.subtitle">
+        <source>custom_css.subtitle</source>
+        <target state="translated">Ova CSS pravila će biti uključena u svaku stranicu odgovora</target>
+      </trans-unit>
+      <trans-unit id="9wX1Sxq" resname="custom_css.add_predefined_rule">
+        <source>custom_css.add_predefined_rule</source>
+        <target state="translated">Dodaj predodređeno pravilo</target>
+      </trans-unit>
+      <trans-unit id="1V9hVHi" resname="custom_css.add_rule_help">
+        <source>custom_css.add_rule_help</source>
+        <target state="translated">Dodaj sva svoja prilagođena CSS pravila ovdje</target>
+      </trans-unit>
+      <trans-unit id="YqOvknh" resname="custom_css.replace">
+        <source>custom_css.replace</source>
+        <target state="translated">Pravilo „%name%” je već uključeno u tvoj prilagođeni CSS. Želiš li ga zamijeniti? Ako ne, bit će dodano.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -46,7 +46,7 @@ class CustomCssRepository
         return $this->fileHelper->getDataDirectory() . '/custom-css.css';
     }
 
-    public function saveCustomCss(CustomCss $entity): bool
+    public function saveCustomCss(CustomCss $entity): void
     {
         $file = $this->getStorageFilename();
 
@@ -57,8 +57,6 @@ class CustomCssRepository
         if (false === file_put_contents($file, $entity->getCustomCss())) {
             throw new \Exception('Failed saving custom css rules to file: ' . $file);
         }
-
-        return true;
     }
 
     public function getCustomCss(): CustomCss
@@ -68,7 +66,10 @@ class CustomCssRepository
         $entity = new CustomCss();
 
         if (file_exists($file) && is_readable($file)) {
-            $entity->setCustomCss(file_get_contents($file));
+            $content = file_get_contents($file);
+            if ($content !== false) {
+                $entity->setCustomCss($content);
+            }
         }
 
         return $entity;

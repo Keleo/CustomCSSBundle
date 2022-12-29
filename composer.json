@@ -33,5 +33,37 @@
             "require": 20000,
             "name": "Custom CSS"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": false,
+            "symfony/flex": false
+        },
+        "platform": {
+            "php": "7.3"
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
+        "codestyle-fix": "vendor/bin/php-cs-fixer fix",
+        "codestyle-check": "vendor/bin/php-cs-fixer fix --dry-run --verbose --using-cache=no --show-progress=none --format=checkstyle",
+        "phpstan": "vendor/bin/phpstan analyse . --configuration=phpstan.neon --level=9",
+        "linting": [
+            "composer validate --strict --no-check-version",
+            "@codestyle-check",
+            "@phpstan"
+        ]
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "kevinpapst/kimai2": "dev-master",
+        "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan-symfony": "^1.0",
+        "symfony/console": "^4.0",
+        "symfony/event-dispatcher": "^4.0"
     }
 }
