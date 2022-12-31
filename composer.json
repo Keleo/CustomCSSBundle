@@ -18,7 +18,8 @@
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": false,
-            "symfony/flex": false
+            "symfony/flex": false,
+            "symfony/runtime": false
         },
         "platform": {
             "php": "8.1.3"
@@ -33,19 +34,6 @@
             "require": 20000,
             "name": "Custom CSS"
         }
-    },
-    "config": {
-        "allow-plugins": {
-            "composer/package-versions-deprecated": false,
-            "symfony/flex": false
-        },
-        "platform": {
-            "php": "7.3"
-        },
-        "preferred-install": {
-            "*": "dist"
-        },
-        "sort-packages": true
     },
     "scripts": {
         "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
