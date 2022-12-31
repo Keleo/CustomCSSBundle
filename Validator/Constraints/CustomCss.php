@@ -10,13 +10,8 @@
 
 namespace KimaiPlugin\CustomCSSBundle\Validator\Constraints;
 
-use Doctrine\Common\Annotations\Annotation\Target;
 use Symfony\Component\Validator\Constraint;
 
-/**
- * @Annotation
- * @Target({"PROPERTY"})
- */
 class CustomCss extends Constraint
 {
     public const TAGS_DISALLOWED = 'kimai-custom-css-01';
@@ -28,12 +23,9 @@ class CustomCss extends Constraint
         self::TAGS_DISALLOWED => 'HTML_TAGS',
     ];
 
-    /**
-     * @var string
-     */
-    public $message = 'Your custom css settings are invalid.';
+    public string $message = 'Your custom css settings are invalid.';
 
-    public function getTargets()
+    public function getTargets(): string|array
     {
         return self::PROPERTY_CONSTRAINT;
     }

@@ -17,17 +17,11 @@ use Symfony\Component\Finder\SplFileInfo;
 
 class CustomCssRepository
 {
-    private $fileHelper;
-
-    public function __construct(FileHelper $fileHelper)
+    public function __construct(private FileHelper $fileHelper)
     {
-        $this->fileHelper = $fileHelper;
     }
 
-    /**
-     * @return array
-     */
-    public function getPredefinedStyles()
+    public function getPredefinedStyles(): array
     {
         $rules = [];
         $searchDir = __DIR__ . '/../Resources/ruleset';
@@ -47,7 +41,9 @@ class CustomCssRepository
 
     private function getStorageFilename(): string
     {
-        return $this->fileHelper->getDataDirectory() . '/custom-css-bundle.css';
+        // pre v2 the file was called custom-css-bundle.css - the name was
+        // changed because the old rules will not work in v2
+        return $this->fileHelper->getDataDirectory() . '/custom-css.css';
     }
 
     public function saveCustomCss(CustomCss $entity): void

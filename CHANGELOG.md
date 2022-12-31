@@ -1,5 +1,16 @@
 # Changelog
 
+## Version 2.0
+
+Compatibility: requires minimum Kimai 2.0
+
+- Fixed: compatibility with Kimai 2.0
+
+Attention: all existing rules from v1 are stored in var/data/custom-css-bundle.css.
+They will likely not work in v2 due to the new HTML structures and classes.
+Therefor you have to manually import them.
+The new storage file is: var/data/custom-css.css
+
 ## 1.7
 
 Compatibility: requires minimum Kimai 1.9

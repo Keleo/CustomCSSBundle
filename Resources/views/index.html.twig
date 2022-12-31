@@ -1,19 +1,13 @@
 {% extends 'base.html.twig' %}
 {% import "macros/widgets.html.twig" as widgets %}
 
-{% block page_title %}{{ 'Custom CSS'|trans }}{% endblock %}
-{% block page_actions %}
-    {% set event = actions(app.user, 'custom_css', 'index') %}
-    {{ widgets.page_actions(event.actions) }}
-{% endblock %}
-
 {% block main %}
 
     {% if rulesets is not empty %}
         <script type="text/javascript">
             function addCustomCssRuleToBox(ruleName)
             {
-                var cssRules = {
+                let cssRules = {
                     {% for groupName, rules in rulesets %}
                         {% for ruleName, ruleContent in rules %}
                 '{{ groupName }}_{{ ruleName }}': '{{ ruleContent|escape('js') }}',
@@ -22,12 +16,12 @@
                     'lastone': ''
                 };
 
-                var humanRuleName = "[" + ruleName.replace('_', '] ');
-                var header = "/* START " + humanRuleName + " */";
-                var footer = "/* END " + humanRuleName + " */";
-                var ruleRegexp = new RegExp(header.replace(/[*[\]]/g, '\\$&') + '[^]*?' + footer.replace(/[*[\]]/g, '\\$&'))
-                var customCss = jQuery('#custom_css_customCss').val();
-                var newCss = header + "\n" + cssRules[ruleName].trim() + "\n" + footer;
+                let humanRuleName = "[" + ruleName.replace('_', '] ');
+                let header = "/* START " + humanRuleName + " */";
+                let footer = "/* END " + humanRuleName + " */";
+                let ruleRegexp = new RegExp(header.replace(/[*[\]]/g, '\\$&') + '[^]*?' + footer.replace(/[*[\]]/g, '\\$&'))
+                let customCss = document.getElementById('custom_css_customCss').value;
+                let newCss = header + "\n" + cssRules[ruleName].trim() + "\n" + footer;
 
                 if (ruleRegexp.test(customCss) && confirm("{{ 'custom_css.replace'|trans|e('js') }}".replace(/%name%/, humanRuleName))) {
                     customCss = customCss.replace(ruleRegexp, newCss);
@@ -35,35 +29,36 @@
                     customCss = customCss + "\n" + newCss + "\n";
                 }
 
-                jQuery('#custom_css_customCss').val(customCss);
+                document.getElementById('custom_css_customCss').value = customCss;
 
                 return false;
             }
         </script>
 
-        {% embed '@AdminLTE/Widgets/box-widget.html.twig' with {boxtype: 'default'} %}
+    {% embed '@theme/embeds/card.html.twig' with {boxtype: 'default'} %}
             {% block box_title %}{{ 'custom_css.add_predefined_rule' | trans }}{% endblock %}
             {% block box_body %}
+            <div class="d-flex">
                 {% for groupName, rules in rulesets %}
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ groupName }} <span class="caret"></span>
+                <div class="dropdown me-2">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ groupName }}
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     {% for ruleName, ruleContent in rules %}
-                        <li><a href="#" onclick="return addCustomCssRuleToBox('{{ groupName }}_{{ ruleName }}')">{{ ruleName }}</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="return addCustomCssRuleToBox('{{ groupName }}_{{ ruleName }}')">{{ ruleName }}</a></li>
                     {% endfor %}
                     </ul>
                 </div>
                 {% endfor %}
+            </div>
             {% endblock %}
         {% endembed %}
     {% endif %}
 
     {% embed 'default/_form.html.twig' with { 'title': 'custom_css.add_rule_help'|trans, 'form': form, 'reset': false } %}
         {% block form_body %}
-            <p>{{ 'custom_css.subtitle'|trans }}</p>
-            {{ form_widget(form) }}
+            {{ form_rest(form) }}
         {% endblock %}
     {% endembed %}
 

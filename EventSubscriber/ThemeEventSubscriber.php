@@ -16,11 +16,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ThemeEventSubscriber implements EventSubscriberInterface
 {
-    private $repository;
-
-    public function __construct(CustomCssRepository $repository)
+    public function __construct(private CustomCssRepository $repository)
     {
-        $this->repository = $repository;
     }
 
     public static function getSubscribedEvents(): array
