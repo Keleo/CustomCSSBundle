@@ -6,19 +6,30 @@ It ships with some pre-defined CSS rules, which can be added with a button click
 
 ## Installation
 
-First clone it to your Kimai installation `plugins` directory and then reload the cache:
-```bash
-git clone https://github.com/Keleo/CustomCSSBundle.git var/plugins/CustomCSSBundle/
-bin/console kimai:reload --env=prod
-```
+This plugin is compatible with the following Kimai releases:
 
-If you use a ZIP with manual upload, make sure the directory structure looks like that (especially the directory name `CustomCSSBundle`):
+| Bundle version | Minimum Kimai version |
+|----------------|-----------------------|
+| 2.0            | 2.0.0                 |
+| 1.5 - 1.7      | 1.9                   |
+| 1.0 - 1.4      | 1.4                   |
+
+You find the most notable changes between the versions in the file [CHANGELOG.md](CHANGELOG.md).
+
+Download and extract the [compatible release](https://github.com/Keleo/CustomCSSBundle/releases).
+
+The file structure needs to look like this afterwards:
 
 ```bash
 var/plugins/
 ├── CustomCSSBundle
 │   ├── CustomCSSBundle.php
 |   └ ... more files and directories follow here ... 
+```
+
+Then rebuild the cache:
+```bash
+bin/console kimai:reload --env=prod
 ```
 
 ## Permissions
