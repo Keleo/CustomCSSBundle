@@ -19,7 +19,7 @@ class CustomCss extends Constraint
     /**
      * @var array<string, string>
      */
-    protected static $errorNames = [
+    protected const ERROR_NAMES = [
         self::TAGS_DISALLOWED => 'HTML_TAGS',
     ];
 
