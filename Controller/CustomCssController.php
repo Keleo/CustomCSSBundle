@@ -15,10 +15,10 @@ use App\Utils\PageSetup;
 use KimaiPlugin\CustomCSSBundle\Entity\CustomCss;
 use KimaiPlugin\CustomCSSBundle\Form\CustomCssType;
 use KimaiPlugin\CustomCSSBundle\Repository\CustomCssRepository;
-use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route(path: '/custom-css')]
 #[IsGranted('edit_custom_css')]
