@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the CustomCSSBundle.
+ * This file is part of the "Custom CSS Bundle" for Kimai.
  * All rights reserved by Kevin Papst (www.kevinpapst.de).
  *
  * For the full copyright and license information, please view the LICENSE
