@@ -1,6 +1,6 @@
 {
     "name": "keleo/custom-css-plugin",
-    "description": "A Kimai 2 plugin, which allows to edit custom CSS rules through an administration screen.",
+    "description": "Edit custom CSS rules through an administration screen.",
     "homepage": "https://www.kimai.org/store/keleo-css-custom-bundle.html",
     "type": "kimai-plugin",
     "version": "2.0",
@@ -15,6 +15,17 @@
             "homepage": "https://www.keleo.de"
         }
     ],
+    "extra": {
+        "kimai": {
+            "require": 20000,
+            "name": "Custom CSS"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "KimaiPlugin\\CustomCSSBundle\\": ""
+        }
+    },
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": false,
@@ -28,12 +39,6 @@
             "*": "dist"
         },
         "sort-packages": true
-    },
-    "extra": {
-        "kimai": {
-            "require": 20000,
-            "name": "Custom CSS"
-        }
     },
     "scripts": {
         "codestyle": "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none",
