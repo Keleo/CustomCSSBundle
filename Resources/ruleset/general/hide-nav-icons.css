@@ -1,4 +1,2 @@
-.sidebar-menu>li>ul>li>a>i,
-.sidebar-menu>li>a>i{
-    display:none;
-}
+#navbar-menu li a .nav-link-icon { margin-right: 0; }
+#navbar-menu li a i { display:none; }

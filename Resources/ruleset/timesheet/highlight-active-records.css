@@ -1,4 +1,1 @@
-/* highlight active timesheet records */
-tr.recording {
-    background-color: #ffa059 !important;
-}
+tr.recording { background-color: #ffa059; }

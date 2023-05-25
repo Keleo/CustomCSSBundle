@@ -1,1 +1,1 @@
-.login-logo, .register-logo { visibility: hidden; }
+body.login-page h1 { display: none; }

@@ -1,1 +1,1 @@
-ul.sidebar-menu li#calendar { display:none; }
+.navbar-menu-calendar { display:none !important; }
