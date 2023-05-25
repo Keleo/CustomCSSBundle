@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 2.0.1
+
+Compatibility: requires minimum Kimai 2.0
+
+- Updates existing CSS rules to be compatible with 2.0.
+- Remove (plugin) from permission/role header
+
+Hiding navigation items will only work with Kimai 2.0.24 
+
 ## Version 2.0
 
 Compatibility: requires minimum Kimai 2.0

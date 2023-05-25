@@ -3,7 +3,7 @@
     "description": "Edit custom CSS rules through an administration screen.",
     "homepage": "https://www.kimai.org/store/keleo-css-custom-bundle.html",
     "type": "kimai-plugin",
-    "version": "2.0",
+    "version": "2.0.1",
     "keywords": [
         "kimai",
         "kimai-plugin"
