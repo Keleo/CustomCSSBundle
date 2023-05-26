@@ -1,1 +1,1 @@
-span.badge {display:none !important;}
+.label-activity span.badge, .label-project span.badge, .label-customer span.badge {display:none !important;}

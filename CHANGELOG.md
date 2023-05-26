@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 2.0.2
+
+Compatibility: requires minimum Kimai 2.0
+
+- Fix `remove-color-dots` rule
+
 ## Version 2.0.1
 
 Compatibility: requires minimum Kimai 2.0
