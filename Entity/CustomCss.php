@@ -12,10 +12,7 @@ namespace KimaiPlugin\CustomCSSBundle\Entity;
 
 class CustomCss
 {
-    /**
-     * @var string
-     */
-    private $customCss = '';
+    private string $customCss = '';
 
     public function getCustomCss(): string
     {
