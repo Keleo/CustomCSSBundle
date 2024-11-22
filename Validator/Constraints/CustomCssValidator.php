@@ -18,9 +18,7 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 class CustomCssValidator extends ConstraintValidator
 {
     /**
-     * @param string $value
-     * @param Constraint $constraint
-     * @return void
+     * @param mixed|string $value
      */
     public function validate($value, Constraint $constraint): void
     {
@@ -34,8 +32,8 @@ class CustomCssValidator extends ConstraintValidator
 
         $values = [$value, strtolower($value)];
 
-        foreach ($values as $value) {
-            if (stripos($value, '</style>') !== false || stripos($value, '<script') !== false || strip_tags($value) !== $value) {
+        foreach ($values as $tmp) {
+            if (stripos($tmp, '</style>') !== false || stripos($tmp, '<script') !== false || strip_tags($tmp) !== $tmp) {
                 $this->context->buildViolation(CustomCssConstraint::getErrorName(CustomCssConstraint::TAGS_DISALLOWED))
                     ->atPath('customCss')
                     ->setTranslationDomain('validators')

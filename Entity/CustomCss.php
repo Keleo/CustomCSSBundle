@@ -19,7 +19,7 @@ class CustomCss
         return $this->customCss;
     }
 
-    public function setCustomCss(string $customCss = null): void
+    public function setCustomCss(?string $customCss = null): void
     {
         if (null === $customCss) {
             $customCss = '';

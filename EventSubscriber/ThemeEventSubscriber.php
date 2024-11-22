@@ -16,7 +16,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ThemeEventSubscriber implements EventSubscriberInterface
 {
-    public function __construct(private CustomCssRepository $repository)
+    public function __construct(private readonly CustomCssRepository $repository)
     {
     }
 
@@ -30,7 +30,7 @@ class ThemeEventSubscriber implements EventSubscriberInterface
     public function renderStylesheet(ThemeEvent $event): void
     {
         $css = $this->repository->getCustomCss()->getCustomCss();
-        if (empty($css)) {
+        if ($css === '') {
             return;
         }
 
