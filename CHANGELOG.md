@@ -1,3 +1,9 @@
+## Version 3.0.0
+
+Compatibility: requires minimum Kimai 3.0.0
+
+- Compatibility with Symfony 7.4
+
 ## Version 2.2.0
 
 Compatibility: requires minimum Kimai 2.17.0
